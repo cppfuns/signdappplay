@@ -14,7 +14,7 @@ public:
 
 private:
     struct signup_public_key {
-        uint8_t        type;
+        unsigned_int   type;
         array<char,33> data;
         EOSLIB_SERIALIZE(signup_public_key, (type)(data))
     };
