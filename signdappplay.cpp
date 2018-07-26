@@ -55,12 +55,12 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
          active_pubkey_char.begin());
 
     key_weight owner_pubkey_weight = {
-        .key = {abieos::key_type::k1, owner_pubkey_char},
+        .key = {0, owner_pubkey_char},
         .weight = 1
     };
 
     key_weight active_pubkey_weight = {
-        .key = {abieos::key_type::k1, owner_pubkey_char},
+        .key = {0, owner_pubkey_char},
         .weight = 1
     };
 
