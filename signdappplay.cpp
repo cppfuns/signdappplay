@@ -46,11 +46,11 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
     const abieos::public_key active_pubkey =
         abieos::string_to_public_key(active_key_str);
 
-    array<char, 33> owner_pubkey_char;
+    array<unsigned char, 33> owner_pubkey_char;
     copy(owner_pubkey.data.begin(), owner_pubkey.data.end(),
          owner_pubkey_char.begin());
 
-    array<char, 33> active_pubkey_char;
+    array<unsigned char, 33> active_pubkey_char;
     copy(active_pubkey.data.begin(), active_pubkey.data.end(),
          active_pubkey_char.begin());
 
