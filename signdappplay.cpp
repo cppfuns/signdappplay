@@ -54,13 +54,23 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
     copy(active_pubkey.data.begin(), active_pubkey.data.end(),
          active_pubkey_char.begin());
 
+    signup_public_key owner_signup_pubkey = {
+        .type = 0,
+        .data = owner_pubkey_char,
+    };
+
+    signup_public_key active_signup_pubkey = {
+        .type = 0,
+        .data = active_pubkey_char,
+    };
+
     key_weight owner_pubkey_weight = {
-        .key = {0, owner_pubkey_char},
+        .key = owner_signup_pubkey,
         .weight = 1
     };
 
     key_weight active_pubkey_weight = {
-        .key = {0, owner_pubkey_char},
+        .key = active_signup_pubkey,
         .weight = 1
     };
 
