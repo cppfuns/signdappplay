@@ -4,7 +4,7 @@
 #include <eosiolib/action.hpp>
 #include <eosiolib/symbol.hpp>
 #include <eosiolib/public_key.hpp>
-
+#include "includes/abieos_numeric.hpp"
 using namespace eosio;
 class signdappplay: public contract {
 public:
