@@ -56,12 +56,12 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
 
     key_weight owner_pubkey_weight = {
         .key = owner_pubkey_char,
-        .weight = (uint8_t)abieos::key_type::k1;
+        .weight = (uint8_t)abieos::key_type::k1
     };
 
     key_weight active_pubkey_weight = {
         .key = active_pubkey_char,
-        .weight = (uint8_t)abieos::key_type::k1;
+        .weight = (uint8_t)abieos::key_type::k1
     };
 
     authority owner = authority{
@@ -80,7 +80,7 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
 
     newaccount new_account = newaccount{
         .creator = _self,
-        .name = new_account_name,
+        .name = account_to_create,
         .owner = owner,
         .active = active
     };
