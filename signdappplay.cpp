@@ -27,7 +27,7 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
 
     eosio_assert(memo.length() == 120 || memo.length() == 66, "Malformed Memo (not right length)");
     const string account_string = memo.substr(0, 12);
-    const account_name account_to_create = string_to_name(account_string.c_str());
+    const account_name new_account_name = string_to_name(account_string.c_str());
     eosio_assert(memo[12] == ':' || memo[12] == '-' || memo[12] == ' ', "Malformed Memo [12] == : or - or space");
 
     const string owner_key_str = memo.substr(13, 53);
@@ -80,7 +80,7 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
 
     newaccount new_account = newaccount{
         .creator = _self,
-        .name = account_to_create,
+        .name = new_account_name,
         .owner = owner,
         .active = active
     };
