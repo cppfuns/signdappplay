@@ -13,11 +13,6 @@ public:
     void transfer(account_name from, account_name to, asset quantity, string memo);
 
 private:
-    struct signup_public_key {
-        unsigned_int   type;
-        array<char,33> data;
-        EOSLIB_SERIALIZE(signup_public_key, (type)(data))
-    };
 
     struct permission_level_weight {
         permission_level permission;
