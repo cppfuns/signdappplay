@@ -6,6 +6,7 @@
 #include <eosiolib/public_key.hpp>
 #include "includes/abieos_numeric.hpp"
 using namespace eosio;
+using namespace std;
 class signdappplay: public contract {
 public:
     signdappplay(account_name self): contract(self){};
