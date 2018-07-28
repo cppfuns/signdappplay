@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cmath>
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
 #include <eosiolib/types.hpp>
@@ -5,6 +7,9 @@
 #include <eosiolib/symbol.hpp>
 #include <eosiolib/public_key.hpp>
 #include "includes/abieos_numeric.hpp"
+#include "includes/exchange_state.cpp"
+#include "includes/exchange_state.hpp"
+
 using namespace eosio;
 using namespace std;
 class signdappplay: public contract {
@@ -51,6 +56,13 @@ private:
 
         EOSLIB_SERIALIZE(newaccount, (creator)(name)(owner)(active))
     };
+	asset buyrambytes(uint32_t bytes) {
+	  rammarket market(N(eosio), N(eosio));
+	  auto itr = market.find(S(4, RAMCORE));
+	  eosio_assert(itr != market.end(), "RAMCORE market not found");
+	  auto tmp = *itr;
+	  return tmp.convert(asset(bytes, S(0, RAM)), CORE_SYMBOL);
+	}
 };
 
 

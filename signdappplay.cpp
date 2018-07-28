@@ -10,7 +10,8 @@ void signdappplay::transfer(account_name from, account_name to, asset quantity, 
     if (from == N(signdappplay)) {
       return;
     }
-    
+    asset buyamount = buyrambytes(3);
+    print("%lld",buyamount.amount);
     eosio_assert(quantity.symbol == CORE_SYMBOL, "only core token allowed"); //string_to_symbol(4, "EOS")
     eosio_assert(quantity.is_valid(), "Invalid token transfer");
     eosio_assert(quantity.amount > 0, "Quantity must be positive");
